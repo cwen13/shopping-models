@@ -21,7 +21,7 @@ Product.init(
       allowNull:false
     },
     price: {
-      type: DataTypes.Decimal(10, 2),
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       validate: {
 	isDecimal: true
@@ -34,19 +34,16 @@ Product.init(
       validate: {
 	isInt: true
       }
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      refernces: {
+	model: "categoty",
+	key: "id",
+	unique: false
+      }
     }
   },
-  {
-    category_id: {
-      type: DataType.INTEGER,
-      refernces: {
-	    model: "categoty",
-	    key: "id",
-	    unique: false
-	  }
-	}
-      }
-  }
   {
     sequelize,
     timestamps: false,

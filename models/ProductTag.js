@@ -8,13 +8,13 @@ ProductTag.init(
   {
     // define columns
     id: {
-      type: DataType.INT,
-      primaryKe: true,
+      type: DataTypes.INTEGER,
+      primaryKey: true,
       allowNull: false,
       autoIncrement: true
     },
     product_id: {
-      type: DataType.INT,
+      type: DataTypes.INTEGER,
       reference: {
 	model: "product",
 	key: "id",
@@ -22,7 +22,7 @@ ProductTag.init(
       }
     },
     tag_id: {
-      type: DataType.INT,
+      type: DataTypes.INTEGER,
       reference: {
 	model: "tag",
 	key: "id",
