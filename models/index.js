@@ -11,19 +11,25 @@ Product.belongsTo(Category, {
 
 // Categories have many Products
 Category.hasMany(Product, {
-  forgeinKey: "catagory"
+  forgeinKey: "catagory_id"
 });
 
 // Products belongToMany Tags (through ProductTag)
-Product.belongsToMany(ProductTag, {
-  through: Tag,
-  unique: false
+Product.belongsToMany(Tag, {
+  through: {
+    model: ProductTag,
+    unique: false
+  },
+  as: "product_tags"
 });
 
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
-  through: ProductTag,
-  unique: false
+  through:{
+    model: ProductTag,
+    unique: false
+  },
+  as: "tag_of_product"
 });
 
 module.exports = {
