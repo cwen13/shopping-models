@@ -37,6 +37,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   // create a new category
   try {
+    consele.log(req.body);
     const categoryData = await Category.create({
       category_name: req.body.category_name
     });
